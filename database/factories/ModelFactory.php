@@ -23,6 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+
 $factory->define(App\Thread::class, function ($faker) {
     return [
         'user_id' => function () {
