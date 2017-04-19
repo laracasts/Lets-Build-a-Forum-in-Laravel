@@ -15,6 +15,11 @@ class Thread extends Model
      */
     protected $guarded = [];
 
+    /**
+     * The relationships to always eager-load.
+     *
+     * @var array
+     */
     protected $with = ['creator', 'channel'];
 
     /**
@@ -27,7 +32,11 @@ class Thread extends Model
         static::addGlobalScope('replyCount', function ($builder) {
             $builder->withCount('replies');
         });
-   }
+
+        static::deleting(function ($thread) {
+            $thread->replies()->delete();
+        });
+    }
 
     /**
      * Get a string path for the thread.
