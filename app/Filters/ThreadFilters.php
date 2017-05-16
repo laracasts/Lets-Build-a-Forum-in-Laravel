@@ -17,7 +17,7 @@ class ThreadFilters extends Filters
      * Filter the query by a given username.
      *
      * @param  string $username
-     * @return Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function by($username)
     {
@@ -29,7 +29,7 @@ class ThreadFilters extends Filters
     /**
      * Filter the query according to most popular threads.
      *
-     * @return $this
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function popular()
     {

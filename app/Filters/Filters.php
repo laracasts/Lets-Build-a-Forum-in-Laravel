@@ -38,8 +38,8 @@ abstract class Filters
     /**
      * Apply the filters.
      *
-     * @param  Builder $builder
-     * @return Builder
+     * @param  \Illuminate\Database\Eloquent\Builder $builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function apply($builder)
     {

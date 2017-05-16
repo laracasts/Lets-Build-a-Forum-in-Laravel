@@ -85,6 +85,7 @@ class Thread extends Model
      *
      * @param  array $reply
      * @return Reply
+     * @return Model
      */
     public function addReply($reply)
     {
