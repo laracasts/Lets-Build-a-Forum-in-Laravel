@@ -17,6 +17,10 @@
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
     </testsuites>
+    <logging>
+        <log type="coverage-html" target="public/tests/coverage"/>
+        <log type="testdox-html" target="public/tests/index.html"/>
+    </logging>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
