@@ -13,7 +13,9 @@ class Trending
      */
     public function get()
     {
-        return array_map('json_decode', Redis::zrevrange($this->cacheKey(), 0, 4));
+        return Thread::whereIn('id', Redis::zrevrange($this->cacheKey(), 0, 4))
+            ->take(5)
+            ->get();
     }
 
     /**
@@ -23,10 +25,7 @@ class Trending
      */
     public function push($thread)
     {
-        Redis::zincrby($this->cacheKey(), 1, json_encode([
-            'title' => $thread->title,
-            'path' => $thread->path()
-        ]));
+        Redis::zincrby($this->cacheKey(), 1, $thread->id);
     }
 
     /**
