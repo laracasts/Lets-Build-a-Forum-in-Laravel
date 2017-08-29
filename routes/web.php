@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    \Mail::to(App\User::first())->send(new \App\Mail\PleaseConfirmYourEmail());
     return view('welcome');
 });
 
