@@ -56,12 +56,21 @@ class ThreadsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'channel_id' => 'required|exists:channels,id'
+            'channel' => 'required'
         ]);
 
+        $channel = Channel::whereName(request('channel'))->first();
+        
+        if (!$channel) {
+            $channel = Channel::create([
+                'name' => request('channel'),
+                'slug' => request('channel')
+            ]);
+        }
+        
         $thread = Thread::create([
             'user_id' => auth()->id(),
-            'channel_id' => request('channel_id'),
+            'channel_id' => $channel->id,
             'title' => request('title'),
             'body' => request('body')
         ]);

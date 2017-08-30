@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         \View::composer('*', function ($view) {
             $channels = \Cache::rememberForever('channels', function () {
-                return Channel::all();
+                return Channel::orderBy('name')->get();
             });
 
             $view->with('channels', $channels);
