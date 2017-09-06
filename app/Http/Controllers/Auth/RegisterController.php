@@ -65,7 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::forceCreate([
+        return User::forceCreate([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
