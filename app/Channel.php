@@ -3,9 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
 
 class Channel extends Model
 {
+    /**
+     *  Boot the model.
+     *
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($channel) {
+            Artisan::call('cache:clear');
+        });
+
+        static::deleted(function ($channel) {
+            Artisan::call('cache:clear');
+        });
+    }
+    
     /**
      * Get the route key name for Laravel.
      *
