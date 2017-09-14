@@ -111,4 +111,14 @@ class Reply extends Model
             $body
         );
     }
+
+    /**
+     * Determine if the current reply is marked as the best.
+     *
+     * @return bool
+     */
+    public function isBest()
+    {
+        return $this->thread->best_reply_id == $this->id;
+    }
 }

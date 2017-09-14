@@ -200,4 +200,14 @@ class Thread extends Model
 
         $this->attributes['slug'] = $slug;
     }
+
+    /**
+     * Mark the given reply as the best answer.
+     *
+     * @param Reply $reply
+     */
+    public function markBestReply(Reply $reply)
+    {
+        $this->update(['best_reply_id' => $reply->id]);
+    }
 }
