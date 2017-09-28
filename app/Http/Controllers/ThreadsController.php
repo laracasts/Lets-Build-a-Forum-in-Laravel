@@ -66,12 +66,12 @@ class ThreadsController extends Controller
 
         $thread = Thread::create([
             'user_id' => auth()->id(),
-            'channel_id' => request('channel_id'),
-            'title' => request('title'),
-            'body' => request('body')
+            'channel_id' => $request->channel_id,
+            'title' => $request->title,
+            'body' => $request->body
         ]);
 
-        if (request()->wantsJson()) {
+        if ($request->wantsJson()) {
             return response($thread, 201);
         }
 
