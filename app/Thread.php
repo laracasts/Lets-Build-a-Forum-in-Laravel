@@ -33,6 +33,15 @@ class Thread extends Model
     protected $appends = ['isSubscribedTo'];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'locked' => 'boolean'
+    ];
+
+    /**
      * Boot the model.
      */
     protected static function boot()
@@ -101,14 +110,6 @@ class Thread extends Model
         event(new ThreadReceivedNewReply($reply));
 
         return $reply;
-    }
-
-    /**
-     * Lock the thread.
-     */
-    public function lock()
-    {
-        $this->update(['locked' => true]);
     }
 
     /**
