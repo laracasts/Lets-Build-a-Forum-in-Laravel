@@ -104,6 +104,24 @@ class ThreadsController extends Controller
     }
 
     /**
+     * Update the given thread.
+     *
+     * @param string $channel
+     * @param Thread $thread
+     */
+    public function update($channel, Thread $thread)
+    {
+        $this->authorize('update', $thread);
+
+        $thread->update(request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]));
+
+        return $thread;
+    }
+
+    /**
      * Delete the given thread.
      *
      * @param        $channel
