@@ -6,9 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "algolia/algoliasearch-client-php": "^1.23",
         "barryvdh/laravel-debugbar": "^2.3",
         "kitetail/zttp": "^0.3.0",
         "laravel/framework": "5.5.*",
+        "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "predis/predis": "^1.1"
     },
