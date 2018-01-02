@@ -12,7 +12,8 @@
         "laravel/framework": "5.5.*",
         "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "stevebauman/purify": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

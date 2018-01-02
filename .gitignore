@@ -2,6 +2,7 @@
 /public/storage
 /public/hot
 /storage/*.key
+/storage/purify
 /vendor
 /.idea
 Homestead.json
