@@ -16,7 +16,7 @@
 
         <div class="panel-body">
             <div v-if="editing">
-                <form @submit="update">
+                <form @submit.prevent="update">
                     <div class="form-group">
                         <wysiwyg v-model="body"></wysiwyg>
                     </div>
